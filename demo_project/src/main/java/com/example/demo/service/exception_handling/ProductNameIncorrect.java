@@ -1,4 +1,4 @@
-package com.example.springmvc.exception_handling;
+package com.example.demo.service.exception_handling;
 
 public class ProductNameIncorrect {
     private String info;

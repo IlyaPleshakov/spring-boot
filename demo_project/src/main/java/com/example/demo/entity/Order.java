@@ -1,4 +1,4 @@
-package com.example.springmvc.entity;
+package com.example.demo.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;

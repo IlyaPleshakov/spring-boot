@@ -1,19 +1,14 @@
-package com.example.springmvc.service;
+package com.example.demo.service;
 
-import com.example.springmvc.entity.Order;
-import com.example.springmvc.entity.ProductNames;
+import com.example.demo.entity.ProductNames;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductNameService {
 
+
     public List<ProductNames> getAllProductNames();
+//    public Optional<ProductNames> getProductNameById(Long id);
 
-    public List<Order> getAllOrders();
-
-    public void saveProductName(ProductNames productNames);
-
-    public void deleteProductName(int id);
-
-    ProductNames getProductName(int id);
 }

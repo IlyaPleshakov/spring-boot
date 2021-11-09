@@ -1,53 +1,43 @@
-package com.example.springmvc.service;
-
-import com.example.springmvc.dao.OrderDAO;
-import com.example.springmvc.dao.ProductNamesDAO;
-import com.example.springmvc.entity.Order;
-import com.example.springmvc.entity.ProductNames;
+package com.example.demo.service;
+import com.example.demo.repository.ProductNamesRepository;
+import com.example.demo.entity.ProductNames;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductNameServiceImpl implements ProductNameService{
 
     @Autowired
-    private ProductNamesDAO productNamesDAO;
+    private ProductNamesRepository productNamesRepository;
 
     @Autowired
-    private OrderDAO orderDAO;
+    private EntityManager entityManager;
 
     @Override
-    @Transactional
     public List<ProductNames> getAllProductNames() {
-        return productNamesDAO.getAllProductNames();
+
+        //List<ProductNames> productNames=productNamesRepository.findAll();
+        Query query=entityManager.createQuery("from ProductNames");
+        List<ProductNames> allProductNames =query.getResultList();
+        return allProductNames;
     }
 
-    @Override
-    @Transactional
-    public List<Order> getAllOrders() {
-        return orderDAO.getAllOrders();
-    }
+//    @Override
+//    public Optional<ProductNames> getProductNameById(Long id) {
+//        return Optional.empty();
+//    }
 
-    @Override
-    @Transactional
-    public void saveProductName(ProductNames productNames) {
-        productNamesDAO.saveProductName(productNames);
-    }
+//    @Override
+//    public <ProductNames getProductNameById(Long id) {
+//        Optional<> optional=
+//        return productNamesRepository.findById(id);
+//    }
 
-    @Override
-    @Transactional
-    public void deleteProductName(int id) {
-        productNamesDAO.deleteProductName(id);
-    }
 
-    @Override
-    @Transactional
-    public ProductNames getProductName(int id) {
-        ProductNames productNames = productNamesDAO.getProductName(id);
-        return productNames;
-    }
 }

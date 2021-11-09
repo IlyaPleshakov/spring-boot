@@ -1,6 +1,6 @@
-package com.example.springmvc.entity;
+package com.example.demo.entity;
 
-import com.example.springmvc.entity.Order;
+import com.example.demo.entity.Order;
 
 import javax.persistence.*;
 
@@ -10,11 +10,7 @@ public class ProductNames {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable = false)
-    private int id;
-
-    @Column(name="order_id")
-    private int order;
-
+    private Long id;
 
     @Column(name="product_name")
     private String productName;
@@ -49,33 +45,19 @@ public class ProductNames {
         this.price = price;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getOrder() {
-        return order;
-    }
-
-    public void setOrder(int order)
-    {
-        this.order = order;
-    }
 
 
     public ProductNames() {
     }
 
-    public ProductNames(int order, String productName, int quantity, double price) {
-        this.order = order;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.price = price;
-    }
 
     @Override
     public String toString() {
