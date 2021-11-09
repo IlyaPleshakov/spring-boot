@@ -16,15 +16,11 @@ public class ProductNameServiceImpl implements ProductNameService{
     @Autowired
     private ProductNamesRepository productNamesRepository;
 
-    @Autowired
-    private EntityManager entityManager;
-
     @Override
     public List<ProductNames> getAllProductNames() {
 
-        //List<ProductNames> productNames=productNamesRepository.findAll();
-        Query query=entityManager.createQuery("from ProductNames");
-        List<ProductNames> allProductNames =query.getResultList();
+        List<ProductNames> allProductNames=productNamesRepository.findAll();
+
         return allProductNames;
     }
 

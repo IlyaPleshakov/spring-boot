@@ -11,12 +11,12 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DatasourceConfig {
     @Bean
-    public DataSource datasource() {
+    public DataSource dataSource() {
         return DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")
                 .url("jdbc:postgresql://localhost:5432/postgres")
                 .username("postgres")
-                .password("61813216kjkBkmz1994!")
+                .password("admin")
                 .build();
     }
 }
